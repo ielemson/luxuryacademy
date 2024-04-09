@@ -63,7 +63,7 @@ $setting = \App\Models\Setting::find(1);
                             
                             </li>
                             <li>
-                                <a href="{{ route("payment") }}">Register</a>
+                                <a href="{{ route("payment") }}">Get Access</a>
                             
                             </li>
                                                                                                                                                                                                                                                                                                               
