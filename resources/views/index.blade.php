@@ -536,9 +536,9 @@
            <!-- left side social bar--> 
             <div class="slide-left-social">
                 <ul class="clearfix">
-                    <li><a href="#" class="sx-title-swip" data-hover="Linkedin">Linkedin</a></li>
-                    <li><a href="#" class="sx-title-swip" data-hover="Twitter">Twitter</a></li>
-                    <li><a href="#" class="sx-title-swip"  data-hover="Facebook">Facebook</a></li>
+                    <li><a href="{{ $setting->instagram }}" class="sx-title-swip" data-hover="Instagram">Instagram</a></li>
+                    <li><a href="{{ $setting->twitter }}" class="sx-title-swip" data-hover="Twitter">Twitter</a></li>
+                    <li><a href="{{ $setting->facebook }}" class="sx-title-swip"  data-hover="Facebook">Facebook</a></li>
                 </ul>
             </div>
                                  

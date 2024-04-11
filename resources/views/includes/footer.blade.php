@@ -6,111 +6,51 @@
         <div class="container">
             <div class="row">
                 <!-- ABOUT COMPANY -->
-                <div class="col-lg-3 col-md-6 col-sm-6">  
+                <div class="col-lg-4 col-md-6 col-sm-6">  
                     <div class="widget widget_about">
                         <!--<h4 class="widget-title">About Company</h4>-->
                         <div class="logo-footer clearfix p-b15">
-                            <a href="index.html"><img src="images/logo-light.png" alt=""></a>
+                            <a href="{{ url("/") }}"><img src="{{ asset("images/settings/$setting->website_logo_dark") }}" alt="logo"></a>
                         </div>
-                        <p>7X Theme is a html template for interior and architecture purpose. Today we can tell you, thanks to your passion.</p>                                 
+                        <p>
+                            {{ $setting->meta_description }}
+                        </p>                                 
                         
                         <ul class="social-icons  sx-social-links">
-                            <li><a href="javascript:void(0);" class="fa fa-behance"></a></li>
-                            <li><a href="javascript:void(0);" class="fa fa-facebook"></a></li>
-                            <li><a href="javascript:void(0);" class="fa fa-twitter"></a></li>
-                            <li><a href="javascript:void(0);" class="fa fa-instagram"></a></li>
+                            {{-- <li><a href="javascript:void(0);" class="fa fa-behance"></a></li> --}}
+                            <li><a href="{{ $setting->facebook }}" class="fa fa-facebook"></a></li>
+                            {{-- <li><a href="javascript:void(0);" class="fa fa-twitter"></a></li> --}}
+                            <li><a href="{{ $setting->instagram }}" class="fa fa-instagram"></a></li>
                         </ul>                                     
                     </div>
                 </div> 
                 
                 <!-- RESENT POST -->
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="widget recent-posts-entry-date">
-                        <h5 class="widget-title">Resent Post</h5>
-                        <div class="widget-post-bx">
-                            <div class="widget-post clearfix">
-                                <div class="sx-post-date text-center text-uppercase text-white">
-                                    <strong class="p-date">15</strong>
-                                    <span class="p-month">Oct</span>
-                                    <span class="p-year">2019</span>
-                                </div>
-                                <div class="sx-post-info">
-                                    <div class="sx-post-header">
-                                        <h6 class="post-title"><a href="blog-single.html">On these beams, we’re.</a></h6>
-                                    </div>
-                                    <div class="sx-post-meta">
-                                        <ul>
-                                            <li class="post-author"><i class="fa fa-user"></i>By Admin</li>
-                                            <li class="post-comment"><i class="fa fa-comments"></i> 28</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="widget-post clearfix">
-                                <div class="sx-post-date text-center text-uppercase text-white">
-                                    <strong class="p-date">17</strong>
-                                    <span class="p-month">Oct</span>
-                                    <span class="p-year">2019</span>
-                                </div>
-                                <div class="sx-post-info">
-                                    <div class="sx-post-header">
-                                        <h6 class="post-title"><a href="blog-single.html">We’ll be a sensation for</a></h6>
-                                    </div>
-                                    <div class="sx-post-meta">
-                                        <ul>
-                                            <li class="post-author"><i class="fa fa-user"></i>By Admin</li>
-                                            <li class="post-comment"><i class="fa fa-comments"></i> 29</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="widget-post clearfix">
-                                <div class="sx-post-date text-center text-uppercase text-white">
-                                    <strong class="p-date">18</strong>
-                                    <span class="p-month">Oct</span>
-                                    <span class="p-year">2019</span>
-                                </div>
-                                <div class="sx-post-info">
-                                    <div class="sx-post-header">
-                                        <h6 class="post-title"><a href="blog-single.html">We’ll be a sensation for</a></h6>
-                                    </div>
-                                    <div class="sx-post-meta">
-                                        <ul>
-                                            <li class="post-author"><i class="fa fa-user"></i>By Admin</li>
-                                            <li class="post-comment"><i class="fa fa-comments"></i> 29</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>                                    
-                            
-                        </div>
-                    </div>                          
-                </div>   
+                
                                      
                 <!-- USEFUL LINKS -->
-                <div class="col-lg-3 col-md-6 col-sm-6 footer-col-3">
+                <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="widget widget_services inline-links">
                         <h5 class="widget-title">Useful links</h5>
                         <ul>
-                            <li><a href="about-1.html">About</a></li>
-                            <li><a href="services-1.html">Services</a></li>
-                            <li><a href="project-grid.html">Projects</a></li>
-                            <li><a href="blog-grid.html">Blog</a></li>
-                            <li><a href="contact-1.html">Contact Us</a></li>
+                            <li><a href="{{ route("about") }}">About</a></li>
+                            <li><a href="{{ url("/") }}">Services</a></li>
+                            {{-- <li><a href="{{ url("/") }}">Projects</a></li> --}}
+                            {{-- <li><a href="blog-/">Blog</a></li> --}}
+                            <li><a href="{{ route("contact") }}">Contact Us</a></li>
                         </ul>
                     </div>                           
                 </div>
                 
                 <!-- CONTACT US -->
-                <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="widget widget_address_outer">
                         <h5 class="widget-title">Contact Us</h5>
                         <ul class="widget_address">
-                            <li>756 Livingston Street, Brooklyn, NY 11201, United State</li>
-                            <li>7xthemedemo@gmail.com</li>
-                            <li>(+298) 012-3456-789</li>
-                            <li>(+298) 146-6543-480</li>
+                            <li>{{ $setting->address }}</li>
+                            <li>{{ $setting->email }}</li>
+                            <li>{{ $setting->phone }}</li>
+                            {{-- <li></li> --}}
                         </ul>
                    
                     </div>                                              	
@@ -120,35 +60,7 @@
                 
             </div>
         </div> 
-        <div class="container">
-            <div class="call-to-action-wrap">
-                <div class="row">
-                    <div class="col-lg-7 col-md-6">
-                        <div class="call-to-action-left">
-                            <h5 class="text-uppercase m-b10 m-t0">Subscribe to our newsletter!</h5>
-                            <span>Never Miss Anything From 7xtheme By Signing Up To Our Newsletter.</span>
-                        </div>
-                    </div>
-                    
-                    <div class="col-lg-5 col-md-6">
-                        <div class="call-to-action-right">
-                            <div class="widget_newsletter">
-                                <div class="newsletter-bx">
-                                    <form role="search" method="post">
-                                        <div class="input-group">
-                                            <input name="news-letter" class="form-control" placeholder="ENTER YOUR EMAIL" type="text">
-                                            <span class="input-group-btn">
-                                                <button type="submit" class="site-button"><i class="fa fa-paper-plane-o"></i></button>
-                                            </span>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>                                                           
-                        </div>
-                    </div>
-                </div>
-            </div>                        
-        </div>                 
+                     
     </div>
     <!-- FOOTER COPYRIGHT -->
     <div class="footer-bottom overlay-wraper">
@@ -156,7 +68,7 @@
         <div class="container">
             <div class="row">
                 <div class="sx-footer-bot-left">
-                    <span class="copyrights-text">© 2019 Your Company. Designed By 7xtheme.</span>
+                    <span class="copyrights-text">© {{ Date("Y") }}. {{ $setting->website_title }}</span>
                 </div>
             </div>
         </div>

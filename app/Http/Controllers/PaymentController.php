@@ -16,6 +16,10 @@ class PaymentController extends Controller
     }
 
 
+    public function paymentAccess(Request $request){
+        return response(["data"=>$request->all()]);
+    }
+
     public function redirectToGateway()
     {
         try{
@@ -33,7 +37,7 @@ class PaymentController extends Controller
     {
         $paymentDetails = Paystack::getPaymentData();
         
-        dd($paymentDetails);
+        dd($paymentDetails["data"]["reference"]);
         // Now you have the payment details,
         // you can store the authorization_code in your db to allow for recurrent subscriptions
         // you can then redirect or do whatever you want

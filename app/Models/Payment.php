@@ -17,7 +17,9 @@ class Payment extends Model
         "phone",
         "state",
         "country",
-        "payment_reference",
-        "payment_status"
+        "reference",
+        "status",
+        "message",
+        "amount"
     ];
 }

@@ -24,25 +24,31 @@ class FrontendController extends Controller
     
  
 
-    public function make_payment(Request $request)
-    {
-        return response()->json(['payload' => $request->all()]);
-    }
+    // public function make_payment(Request $request)
+    // {
+    //     return response()->json(['payload' => $request->all()]);
+    // }
 
-    public function store_payment(Request $request){
+    public function paymentAccess(Request $request){
 
 
-        // $payment = new Payment();
+        $payment = new Payment();
 
-        // $payment->fname = $request->fname;
-        // $payment->lname = $request->lname;
-        // $payment->email = $request->email;
-        // $payment->phone = $request->phone;
-        // $payment->password = bcrypt($request->password);
+        $payment->fname = $request->fname;
+        $payment->lname = $request->lname;
+        $payment->email = $request->email;
+        $payment->phone = $request->phone;
+        $payment->amount = $request->amount;
+        $payment->country = $request->country;
+        $payment->state = $request->state;
+        $payment->message = $request->message;
+        $payment->reference = $request->reference;
+        $payment->status = $request->status;
+        $payment->username = $request->username;
 
-        // $payment->save();
-
-        // return response()->json("payment Created", 200);
-        return response()->json(['request' => $request->payload]);
+        if ($payment->save()) {
+            return response()->json(["msg"=>"Access granted!, please check your email for more information","status"=>200]);
+        }
+        return response()->json(["msg"=>"Error Occured, try again","status"=>500]);
     }
 }

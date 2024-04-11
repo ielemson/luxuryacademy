@@ -14,7 +14,7 @@
 
     <!-- INNER PAGE BANNER -->
 
-    <div class="sx-bnr-inr overlay-wraper bg-parallax bg-top-center"  data-stellar-background-ratio="0.5"  style="background-image:url(images/banner/9.jpg);">
+    {{-- <div class="sx-bnr-inr overlay-wraper bg-parallax bg-top-center"  data-stellar-background-ratio="0.5"  style="background-image:url(images/banner/9.jpg);">
 
         <div class="overlay-main bg-black opacity-07"></div>
 
@@ -58,8 +58,11 @@
 
         </div>   
 
-    </div>
+    </div> --}}
 
+    <div class="page-content">
+        @include("includes.innerbanner",["header_1"=>"Contact Us","header_2"=>"Contact Us"])
+    </div>
     <!-- INNER PAGE BANNER END -->
 
      
@@ -232,11 +235,7 @@
 
                 </div>
 
-            </div>
-
-            
-
-            
+            </div>  
 
         </div>
 

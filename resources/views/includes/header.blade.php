@@ -19,8 +19,8 @@ $setting = \App\Models\Setting::find(1);
             <div class="container clearfix">
                 <div class="logo-header">
                     <div class="logo-header-inner logo-header-one">
-                        <a href="index.html">
-                            <img src="images/logo.jpg" alt="" />
+                        <a href="{{ url("/") }}">
+                            <img src="{{ asset("images/settings/$setting->website_logo_dark") }}" alt="" />
                         </a>
                     </div>
                 </div>
@@ -40,7 +40,7 @@ $setting = \App\Models\Setting::find(1);
                             </a>
                         </div>
                         <div class="extra-cell">
-                            <div class="contact-slide-show"><a href="{{ route("contact") }}" class="get-in-touch-btn from-top">Get in touch</a></div>
+                            <div class=""><a href="{{ route("contact") }}" class="get-in-touch-btn from-top">Get in touch</a></div>
                         </div>                                                                   
                     </div>
                     <!-- EXTRA Nav -->
