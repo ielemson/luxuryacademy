@@ -96,6 +96,13 @@
                     </a>
                 </li>
                 
+                <li class="nav-item">
+                    <a href="{{ route("user.payments") }}" class="nav-link">
+                    <i class="fas fa-lock nav-icon"></i>
+                    <p>List of applicants</p>
+                    </a>
+                </li>
+                
 
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('logout') }}"

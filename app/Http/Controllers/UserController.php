@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Payment;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -231,5 +232,11 @@ class UserController extends Controller
             'users' => $users
         ], 200);
         
+    }
+
+
+    public function applicants(){
+        $payments = Payment::all();
+        return view("user.payments",compact("payments"));
     }
 }

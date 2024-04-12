@@ -36,6 +36,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::resource('permission', 'PermissionController');
 
+    Route::get('/course/applicants', 'UserController@applicants')->name('user.payments');
 
     Route::get('/profile', 'UserController@profile')->name('user.profile');
 

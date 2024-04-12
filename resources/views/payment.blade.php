@@ -107,19 +107,26 @@
             </div>
         </div>
     </div>
-    @push('custom_script')
-        <script>
+  @push("custom_script")
+  <script src="http://parsleyjs.org/dist/parsley.js"></script>
+      <script>
+        
+$(document).ready(function(){
 
-           const Toast = Swal.mixin({
+    const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
             showConfirmButton: false,
             timer: 3000
-        })
-        
-            $("#getAccessForm").submit(function(e){
-                e.preventDefault()    
-                let handler = PaystackPop.setup({
+        });
+$('#getAccessForm').parsley();
+
+$('#getAccessForm').on('submit', function(event){
+ event.preventDefault();
+
+ if($('#getAccessForm').parsley().isValid())
+ {
+    let handler = PaystackPop.setup({
                     key: 'pk_test_da101d4e2eab769a31a40ab72904c71c405d8dc2', // Replace with your public keyS
                     email: document.getElementById("email").value,
                     amount: document.getElementById("amount").value * 100,
@@ -173,8 +180,63 @@
                 });
 
                 handler.openIframe();
-              
-            });
-        </script>
+ }
+});
+
+});
+      </script>
+  @endpush
+
+    @push("style")
+    <style>
+        .box
+        {
+         width:100%;
+         max-width:600px;
+         background-color:#f9f9f9;
+         border:1px solid #ccc;
+         border-radius:5px;
+         padding:16px;
+         margin:0 auto;
+        }
+        input.parsley-success,
+        select.parsley-success,
+        textarea.parsley-success {
+          color: #468847;
+          background-color: #DFF0D8;
+          border: 1px solid #D6E9C6;
+        }
+      
+        input.parsley-error,
+        select.parsley-error,
+        textarea.parsley-error {
+          color: #B94A48;
+          background-color: #F2DEDE;
+          border: 1px solid #EED3D7;
+        }
+      
+        .parsley-errors-list {
+          margin: 2px 0 3px;
+          padding: 0;
+          list-style-type: none;
+          font-size: 0.9em;
+          line-height: 0.9em;
+          opacity: 0;
+      
+          transition: all .3s ease-in;
+          -o-transition: all .3s ease-in;
+          -moz-transition: all .3s ease-in;
+          -webkit-transition: all .3s ease-in;
+        }
+      
+        .parsley-errors-list.filled {
+          opacity: 1;
+        }
+        
+        .parsley-type, .parsley-required, .parsley-equalto, .parsley-pattern, .parsley-length{
+         color:#ff0000;
+        }
+        
+        </style>
     @endpush
 @endsection

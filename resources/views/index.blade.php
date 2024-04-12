@@ -59,7 +59,25 @@
                     		</div>
                        </div>
                  </div>
-               
+                 <div class="large-title-block full-content bg-gray">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="large-title">
+                              <h3 class="m-tb0">
+                                Embark on a transformative Real Estate journey for just ₦@money($setting->training_cost)
+                              </h3>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12	col-sm-12">
+                            <div class="large-title-info">
+                                {{-- <p>Vivid colors and abstract patterns, combined with unique uses of light, textures, and space, create an outdoor space that magnifies...</p> --}}
+                                <div class="text-left mt-2">
+                                    <a href="{{ route("payment") }}" class="site-button-link">Click Here to Register</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>   
             <!-- ABOUT COMPANY END -->
     
