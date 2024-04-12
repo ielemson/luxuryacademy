@@ -9,9 +9,6 @@
 
 <!-- CONTENT START -->
 <div class="page-content">
-
-
-
           
             <!-- ABOUT COMPANY START -->
             <div class="section-full mobile-page-padding p-t80 p-b50 bg-gray">
@@ -80,9 +77,7 @@
                 </div>
             </div>   
             <!-- ABOUT COMPANY END -->
-    
-                     
-   
+  
    <!-- OUR AWARDS SECTION START -->
    <div class="section-full p-t80 p-b50 sx-bg-secondry bg-no-repeat bg-bottom-center mobile-page-padding" style="background-image:url(images/background/bg-map.png)">
     <div class="container">
@@ -112,9 +107,7 @@
                    
                  
                  </div>
-                 
-                                                                                                                                           
-
+      
             </div>
         </div>
     </div>
@@ -222,10 +215,9 @@
                                             <span>05</span>
                                         </div>                                        
                                     </div>
-                                                                        
+                                                                  
                                 </div>
-                                                            	
-                            </div>
+                                                              </div>
                             
                         	{{-- <div class="col-lg-4 col-md-6 col-sm-12 m-b30">
                             
@@ -265,18 +257,12 @@
                             </div>
                         </div>
                         </div>
-                        
-                                                
-
+  
                     </div>
                 </div>
              </div>   
             <!-- WHAT WE DO END -->
-    
-  
-    
-             
-                        
+                       
 </div>
 <!-- CONTENT END -->  
 

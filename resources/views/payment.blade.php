@@ -108,8 +108,7 @@
         </div>
     </div>
   @push("custom_script")
-  <script src="http://parsleyjs.org/dist/parsley.js"></script>
-      <script>
+<script>
         
 $(document).ready(function(){
 
