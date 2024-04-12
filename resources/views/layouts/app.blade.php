@@ -12,14 +12,14 @@
     <!-- META -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="keywords" content="" />
-    <meta name="author" content="" />
-    <meta name="robots" content="" />
-    <meta name="description" content="" />
+    <meta name="keywords" content="{{ $setting->meta_tag }}" />
+    <meta name="author" content="{{ $setting->meta_tag }}" />
+    <meta name="robots" content="{{ $setting->meta_title }}" />
+    <meta name="description" content="{{ $setting->meta_description }}" />
 
     <!-- FAVICONS ICON -->
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+    <link rel="icon" href="{{ asset("images/settings/$setting->website_logo_dark") }}" type="image/x-icon" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset("images/settings/$setting->website_logo_dark") }}" />
 
     <!-- PAGE TITLE HERE -->
     <title>Luxury Academy</title>
