@@ -96,7 +96,7 @@
     <!-- JAVASCRIPT  FILES ========================================= -->
     {{-- <script  src="{{ asset("js/jquery-1.12.4.min.js") }}"></script><!-- JQUERY.MIN JS --> --}}
     <script src="{{ asset('js/jquery-2.2.4.js') }}"></script>
-    <script src="http://parsleyjs.org/dist/parsley.js"></script>
+    <script src="{{ asset("js/parsley.min.js") }}"></script>
     {{-- <script src="{{ asset('js/jquery-validate-1.9.0.min.js') }}"></script> --}}
     <script src="{{ asset('js/popper.min.js') }}"></script><!-- POPPER.MIN JS -->
     <script src="{{ asset('js/bootstrap.min.js') }}"></script><!-- BOOTSTRAP.MIN JS -->

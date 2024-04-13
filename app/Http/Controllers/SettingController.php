@@ -35,7 +35,7 @@ class SettingController extends Controller
             'website_title' 			=> 'nullable|string',
             'website_logo_dark'         => 'nullable',
             'training_cost'             => 'required|numeric',
-            // 'website_logo_light'        => 'nullable|string',
+             'about'                      => 'nullable|string',
             // 'website_logo_small'        => 'nullable|string',
             'website_favicon'           => 'nullable|string',
             'meta_title'                => 'nullable|string',
