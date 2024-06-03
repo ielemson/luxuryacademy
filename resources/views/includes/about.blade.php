@@ -1,25 +1,12 @@
-@extends("layouts.app")
-
-@section("content")
-@include("includes.header")
-
-<!-- CONTENT START -->
-<div class="page-content">
-@include("includes.innerbanner",["header_1"=>"About Us","header_2"=>"About Us"])
-</div>
-
-<!-- CONTENT END -->  
-
- <!-- ABOUT COMPANY START -->
- <div class="section-full mobile-page-padding p-t80 p-b50 bg-gray">
+<div class="section-full mobile-page-padding p-t80 p-b50 bg-gray">
     <div class="container">
             <div class="section-content">
                 <div class="row">
                     <div class="col-xl-6 col-lg-6 col-md-12">
                     
                         <div class="about-home-3 m-b30 bg-white">
-                            <h3 class="m-t0 m-b20 sx-tilte">A small efficient interior design team.</h3>
-                            <p>Inteshape is a team of highly talented, experienced, and architects and designers. Our company has been the leading provider of architecture services to clients through out the USA since May 1999. We pay attention to every demand...</p>
+                            <h3 class="m-t0 m-b20 sx-tilte">About Luxury Academy</h3>
+                            <p>Inteshape is a team of highly talented, experienced, and award-winning architects and designers. Our company has been the leading provider of architecture services to clients throughout the USA since 1999. We pay attention to every demand...</p>
 
                         <ul class="list-angle-right anchor-line">
                             <li><a href="#">We provide a architectural 3D modeling services.</a></li>
@@ -29,7 +16,7 @@
                         </ul>
 
                             <div class="text-left">
-                                <a href="{{ route("payment") }}" class="site-button btn-half"><span>Get Access</span></a>
+                                <a href="{{ route("payment") }}" class="site-button-secondry btn-half"><span>Get Access for ₦@money($setting->training_cost)</span></a>
                             </div>                                                    
                         </div>
                     </div>
@@ -56,7 +43,25 @@
                 </div>
            </div>
      </div>
-   
+
+
+     {{-- <div class="large-title-block full-content bg-gray">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="large-title">
+                  <h3 class="m-tb0">
+                    Embark on a transformative Real Estate journey for just ₦@money($setting->training_cost)
+                  </h3>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12	col-sm-12">
+                <div class="large-title-info">
+
+                    <div class="text-left mt-2">
+                        <a href="{{ route("payment") }}" class="site-button-link">Click Here to Register</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> --}}
 </div>   
-<!-- ABOUT COMPANY END -->
-@endsection

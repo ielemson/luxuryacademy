@@ -36,25 +36,20 @@
     <link rel="stylesheet" href="{{ asset('spring/css/swiper.min.css') }}">
     <link rel="stylesheet" href="{{ asset('spring/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('spring/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('spring/css/get-access.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"
     integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-    {{-- <style>
-        .error{
-            color: darkred;
-            font-weight: 800;
-            font-size: 0.9rem
-        }
-    </style> --}}
+
 </head>
 
 <body>
     <div class="cursor js-cursor"></div>
-    {{-- <div class="preloader">
+    <div class="preloader">
         <div class="loadbar"></div>
         <!-- end loadbar -->
         <figure> <span>LOADING...</span> </figure>
-    </div> --}}
+    </div>
     <!-- end preloader -->
     <div class="page-transition">
         <div class="layer"></div>
@@ -77,7 +72,7 @@
                       <div class="title">
                         <h3>Spring Luxury Academy</h3>
                         <p>
-                            ENTER YOUR DETAILS BELOW TO GET ACCESS
+                            ENTER YOUR DETAILS BELOW TO REGISTER
                         </p>
                     </div>
                       <div class="contact-one">
@@ -94,27 +89,57 @@
                           <!-- TITLE END -->
                           <div class="row">
                               <div class="form-group col-md-6">
-                              <input name="email" id="fname" type="email" required 
-                                  placeholder="Enter Email" required>
-                                  @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                              <input name="fname" id="fname" type="text" required 
+                                  placeholder="First Name" required>
                           </div>
                           <div class="form-group col-md-6">
-                              <input name="password" id="password" type="password" required 
-                                  placeholder="Password" required>
-                                  @error('password')
-                                  <span class="invalid-feedback" role="alert">
-                                      <strong>{{ $message }}</strong>
-                                  </span>
-                                  @enderror
+                              <input name="lname" id="lname" type="text" required 
+                                  placeholder="Last Name" required>
                           </div>
-                   
+
+                          <div class="form-group col-md-6">
+                              <input name="email" id="email" type="email"  required
+                                  placeholder="Email">
+                          </div>
+
+                          <div class="form-group col-md-6">
+                              <input name="username" id="username" type="text"  required
+                                  placeholder="Telegram Username">
+                          </div>
+                          <div class="form-group col-md-6">
+                              <input name="phone" id="phone" type="text"  required
+                                  placeholder="Phone Number">
+                          </div>
+
+                          <div class="form-group col-md-6">
+                              <input name="state" id="state" type="text"  required
+                                  placeholder="State / Province">
+                          </div>
+                          <div class="form-group col-md-6">
+                              <select name="country" id="country"  id="country" required>
+                                  <option value="">Select Country</option>
+                                  @foreach ($countries as $country)
+                                      <option value="{{ $country->country_name }}">{{ $country->country_name }}
+                                      </option>
+                                  @endforeach
+
+                              </select>
+                          </div>
+                          <div class="form-group col-md-6">
+                              <input name="course" type="text" 
+                                  placeholder="{{ $setting->training_title }} -  ₦@money($setting->training_cost)" disabled>
+                          </div>
+                          {{-- <input type="hidden" name="quantity" value="1"> --}}
+                          <input type="hidden" name="reference" id="reference">
+                          <input type="hidden" name="status" id="status">
+                          <input type="hidden" name="message" id="message">
+                          <input type="hidden" name="amount" id="amount"
+                              value="{{ $setting->training_cost }}">
+                          {{-- <input type="hidden" name="reference" value="{{ Paystack::genTranxRef() }}"> --}}
+
                           <div class="col-md-12">
                               <button type="submit" class="site-button btn-full">
-                                  <span>Account Login</span>
+                                  <span> REGISTER FOR ₦@money($setting->training_cost)</span>
                               </button>
 
                           </div>
@@ -148,13 +173,11 @@
     <script src="{{ asset('spring/js/overscroll.js') }}"></script>
     <script src="{{ asset('spring/js/TweenMax.min.js') }}"></script>
     <script src="{{ asset('spring/js/scripts.js') }}"></script>
+    <script src="{{ asset('spring/js/get-access.js') }}"></script>
     {{-- <script src="{{ asset("academy/js/jquery-2.2.4.js") }}"></script> --}}
     {{-- <script src="{{ asset("academy/js/jquery-validate-1.9.0.min.js") }}"></script> --}}
     <script src="https://js.paystack.co/v1/inline.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-   
-
-
 </body>
 
 </html>

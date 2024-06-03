@@ -30,7 +30,7 @@
                                     <div class="section-head">
                                         <div class="sx-separator-outer separator-left">
                                             <div class="sx-separator bg-white bg-moving bg-repeat-x"
-                                                style="background-image:url(images/background/cross-line2.png)">
+                                                style="background-image:url({{ asset("images/background/cross-line2.png") }})">
                                                 <h3 class="sep-line-one text-center">ENTER YOUR DETAILS BELOW TO GET ACCESS
                                                 </h3>
                                             </div>
@@ -65,7 +65,7 @@
                                             placeholder="State / Province">
                                     </div>
                                     <div class="form-group ">
-                                        <select name="country" id="country" class="form-control" id="country">
+                                        <select name="country" id="country" class="form-control" id="country" required>
                                             <option value="">Select Country</option>
                                             @foreach ($countries as $country)
                                                 <option value="{{ $country->country_name }}">{{ $country->country_name }}
@@ -107,7 +107,7 @@
             </div>
         </div>
     </div>
-  @push("custom_script")
+@push("custom_script")
 <script>
         
 $(document).ready(function(){

@@ -21,7 +21,7 @@ Route::get('/', [App\Http\Controllers\FrontendController::class, 'index'])->name
 
 // Route::post('payment/authenticate', [App\Http\Controllers\FrontendController::class, 'make_payment']);
 // Route::post('payment/store', [App\Http\Controllers\FrontendController::class, 'store_payment']);
-Route::get('/payment', [App\Http\Controllers\PaymentController::class, 'payment'])->name('payment');
+Route::get('/payment/get-access', [App\Http\Controllers\PaymentController::class, 'payment'])->name('payment');
 Route::post('pay', [App\Http\Controllers\PaymentController::class, 'storePaymentInfo'])->name('pay');
 Route::get('/payment/callback', 'PaymentController@handleGatewayCallback');
 Route::post('/payment/store', 'FrontendController@paymentAccess')->name("paymentAccess");

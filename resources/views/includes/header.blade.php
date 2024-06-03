@@ -1,175 +1,88 @@
-@php
-$setting = \App\Models\Setting::find(1);
-@endphp
-
- <!-- HEADER START -->
-  <header class="site-header header-style-1 nav-wide mobile-sider-drawer-menu">
-    <div class="top-bar bg-gray">
-        <div class="container">
-            <div class="d-flex justify-content-end">
-                <ul class="list-unstyled e-p-bx">
-                    <li><span>Mail us:</span> {{ $setting->email }}</li>
-                    <li><span>Call us:</span>{{ $setting->phone }}</li>
-                </ul>
-            </div>
+<nav class="hamburger-navigation">
+    <div class="layer"></div>
+    <!-- end layer -->
+    <div class="container">
+        <ul class="nav-menu mobile-menu">
+            <li><a href="{{ url("/") }}">Home</a></li>
+            <li><a href="{{ route("payment") }}">Get Access</a></li>
+            <li><a href="{{ route("contact") }}">Contact Us</a></li>
+        </ul>
+        <ul class="nav-menu">
+            <li><a href="{{ url("/") }}">Home</a></li>
+            <li><a href="{{ route("payment") }}">Get Access</a></li>
+            <li><a href="{{ route("contact") }}">Contact Us</a></li>
+        </ul>
+        <div class="info-box"> <span>Follow us on Social Media</span>
+            <ul class="nav-social">
+                <li><a href="{{ $setting->facebook }}"><i class="lni lni-facebook-filled"></i></a></li>
+                <li><a href="{{ $setting->twitter }}"><i class="lni lni-twitter-original"></i></a></li>
+                <li><a href="{{ $setting->instagram }}"><i class="lni lni-instagram"></i></a></li>
+                <li><a href="{{ $setting->youtube }}"><i class="lni lni-youtube"></i></a></li>
+                {{-- <li><a href="#"><i class="lni lni-pinterest"></i></a></li> --}}
+            </ul>
         </div>
-    </div>  
-    <div  class="sticky-header main-bar-wraper navbar-expand-lg">
-        <div class="main-bar header-left-gray-block bg-white">
-            <div class="container clearfix">
-                <div class="logo-header">
-                    <div class="logo-header-inner logo-header-one">
-                        <a href="{{ url("/") }}">
-                            <img src="{{ asset("images/settings/$setting->website_logo_dark") }}" alt="" />
-                        </a>
-                    </div>
-                </div>
-                <!-- NAV Toggle Button -->
-                <button id="mobile-side-drawer" data-target=".header-nav" data-toggle="collapse" type="button" class="navbar-toggler collapsed">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar icon-bar-first"></span>
-                    <span class="icon-bar icon-bar-two"></span>
-                    <span class="icon-bar icon-bar-three"></span>
-                </button>
-                
-                    <!-- EXTRA NAV -->
-                    <div class="extra-nav">
-                        <div class="extra-cell">											
-                            <a href="#search">
-                                <i class="fa fa-search"></i>
-                            </a>
-                        </div>
-                        <div class="extra-cell">
-                            <div class=""><a href="{{ route("contact") }}" class="get-in-touch-btn from-top">Get in touch</a></div>
-                        </div>                                                                   
-                    </div>
-                    <!-- EXTRA Nav -->
-                                            
-                    <!-- MAIN NAVIGATION -->
-                    <div class="header-nav nav-dark navbar-collapse collapse justify-content-start collapse">
-                        <ul class=" nav navbar-nav">
-                            <li class="active">
-                                <a href="{{ url("/") }}">Home</a>
-                                                                                   
-                            </li>
-
-                            <li>
-                                <a href="{{ route("about") }}">About us</a>
-                                                                             
-                            </li>
-
-                            <li>
-                                <a href="javascript:;">Services</a>
-                            
-                            </li>
-                            <li>
-                                <a href="{{ route("payment") }}">Get Access</a>
-                            
-                            </li>
-                                                                                                                                                                                                                                                                                                              
-
-                            <li><a href="javascript:;">FAQ</a></li>
-                            <li><a href="{{ route("contact") }}">Contact us</a></li>                                    
-                       
-                        </ul>
-                    </div>
-                                            
-                    <!-- CONTACT -->                            
-                     <div class="contact-slide-hide" style="background-image:url(images/background/bg-map.png)">
-                        <div class="contact-nav">
-                             <a href="javascript:void(0)" class="contact_close">&times;</a>
-                             <div class="contact-nav-form">
-                                 <div class="row">
-                                    <div class="col-xl-6 col-lg-6 col-md-12">
-                                    
-                                        <div class=" contact-nav-info">
-                             
-                                            <div class="sx-icon-box-wraper left p-b30">
-                                                <div class="icon-xs inline-icon m-b20 scale-in-center"><i class="fa fa-phone"></i></div>
-                                                <div class="icon-content">
-                                                    <h6 class="m-t0">Phone number</h6>
-                                                    <p>{{ $setting->phone }}</p>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="sx-icon-box-wraper left p-b30">
-                                                <div class="icon-xs inline-icon m-b20 scale-in-center"><i class="fa fa-envelope"></i></div>
-                                                <div class="icon-content">
-                                                    <h6 class="m-t0">Email address</h6>
-                                                    <p>{{ $setting->email }}</p>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="sx-icon-box-wraper left p-b30">
-                                                <div class="icon-xs inline-icon m-b20 scale-in-center"><i class="fa fa-map-marker"></i></div>
-                                                <div class="icon-content">
-                                                    <h6 class="m-t0">Address info</h6>
-                                                    <p>{{ $setting->address }}</p>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="full-social-bg">
-                                                  <ul>
-                                                        <li><a href="{{ $setting->facebook }}" class="facebook"><i class="fa fa-facebook"></i></a></li>
-                                                        {{-- <li><a href="#" class="google"><i class="fa fa-google"></i></a></li> --}}
-                                                        <li><a href="{{ $setting->instagram }}" class="instagram"><i class="fa fa-instagram"></i></a></li>
-                                                        {{-- <li><a href="#" class="tumblr"><i class="fa fa-tumblr"></i></a></li> --}}
-                                                        <li><a href="{{ $setting->twitter }}" class="twitter"><i class="fa fa-twitter"></i></a></li>
-                                                        {{-- <li><a href="#" class="youtube"><i class="fa fa-youtube"></i></a></li> --}}
-                                                  </ul>
-                                            </div>
-                                            
-                                         </div>     
-                                      
-                                    </div>                                          
-
-
-                                    <div class="col-xl-6 col-lg-6 col-md-12 ">
-                                        <div class="contact-nav-field shadow-lg p-a30 bg-white" style="background-image:url(images/background/bg-map.png)">
-                                        <form class="cons-contact-form2 form-transparent" method="post" action="https://theme7x.com/inteshape/form-handler2.php">
-                                          
-                                            <div class="input input-animate">
-                                                <label for="name">Name</label>
-                                                <input type="text" name="username" id="name" required>
-                                                <span class="spin"></span>
-                                            </div>
-                                            
-                                            <div class="input input-animate">
-                                                <label for="email">Email</label>
-                                                <input type="email" name="email" id="email" required>
-                                                <span class="spin"></span>
-                                            </div> 
-                                            
-                                            <div class="input input-animate">
-                                                <label for="Phone">Phone</label>
-                                                <input type="text" name="phone" id="Phone" required>
-                                                <span class="spin"></span>
-                                            </div>   
-                                            
-                                            <div class="input input-animate">
-                                                <label for="message">Textarea</label>
-                                                <textarea name="message" id="message" required></textarea>
-                                                <span class="spin"></span>
-                                            </div>
-                                            
-                                            <div class="text-left p-t10">
-                                                <button type="submit" class="site-button-secondry btn-half ">
-                                                 <span>  Submit Now</span>
-                                                </button>
-                                            </div>    
-                                        </form>
-                                        </div>
-                                    </div>  
-                                 </div>                                                                                                           			
-                             </div>
-                              
-                        
-                        </div> 
-                    </div> 
-                                                  
-                 
-            </div>
-        </div>
+        <!-- end info-box -->
     </div>
+    <!-- end container -->
+</nav>
+<!-- end hamburger-navigation -->
+<nav class="navbar">
+    <div class="container">
+        <div class="logo"> <a href="{{ url("/") }}"><img src="{{ asset("images/settings/$setting->website_logo_dark") }}" alt="Image"></a> </div>
+        <!-- end logo -->
+        <div class="navbar-text">{{ $setting->phone }}</div>
+        <!-- end navbar-text -->
+        <div class="site-menu">
+            <ul>
+                <li><a href="{{ url("/") }}">Home</a></li>
+                <li><a href="{{ route("payment") }}">Get Access</a></li>
+                <li><a href="{{ route("contact") }}">Contact Us</a></li>
+            </ul>
+        </div>
+        <!-- end site-menu -->
+        <div class="hamburger-menu">
+            <button class="menu">
+                <svg width="45" height="45" viewBox="0 0 100 100">
+                    <path class="line line1"
+                        d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+                    <path class="line line2" d="M 20,50 H 80" />
+                    <path class="line line3"
+                        d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+                </svg>
+            </button>
+        </div>
+        <!-- end hamburger-menu -->
+    </div>
+    <!-- end container -->
+</nav>
+
+{{-- HEADER SLIDER :::::::::::::::::::: --}}
+<!-- end navbar -->
+<header class="slider">
+    <div class="main-slider">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="slide-inner" data-background="{{ asset("media/images/6.jpg") }}">
+                    <div class="container">
+                        <h6 data-swiper-parallax="100">Welcome to Spring Luxury Academy</h6>
+                        <h1 data-swiper-parallax="200"> Learn from Industry Experts and Gain Practical Skills</h1>
+                        <a href="{{ route("payment") }}" data-swiper-parallax="200">GET ACCESS FOR JUST  ₦@money($setting->training_cost)</a>
+                    </div>
+                    <!-- end container -->
+                </div>
+                <!-- end slide-inner -->
+            </div>  
+        </div>
+        <!-- end swiper-wrapper -->
+        <div class="slider-prev"></div>
+        <!-- end slider-prev -->
+        <div class="slider-next"></div>
+        <!-- end slider-next -->
+        <div class="slider-fraction"></div>
+        <!-- end slider-fraction -->
+    </div>
+    <!-- end main-slider -->
+    <div class="scroll-down"></div>
+    <!-- end scroll-down -->
 </header>
-<!-- HEADER END -->
+<!-- end slider -->

@@ -1,4 +1,4 @@
-<div class="sx-bnr-inr overlay-wraper bg-parallax bg-top-center"  data-stellar-background-ratio="0.5"  style="background-image:url(images/banner/9.jpg);">
+<div class="sx-bnr-inr overlay-wraper bg-parallax bg-top-center"  data-stellar-background-ratio="0.5"  style="background-image:url({{ asset("images/banner/9.jpg") }});">
 
     <div class="overlay-main bg-black opacity-07"></div>
 
@@ -12,7 +12,7 @@
 
                     <h2 class="m-tb0">{{ $header_1 ?? "" }}</h2>
 
-                    <p>Luxury Academy Foundation</p>
+                    <p>SpringLuxury Academy Foundation</p>
 
                 </div>
 

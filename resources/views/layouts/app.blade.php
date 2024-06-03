@@ -93,6 +93,7 @@
 
     </div>
 
+    @include("includes.loader")
     <!-- JAVASCRIPT  FILES ========================================= -->
     {{-- <script  src="{{ asset("js/jquery-1.12.4.min.js") }}"></script><!-- JQUERY.MIN JS --> --}}
     <script src="{{ asset('js/jquery-2.2.4.js') }}"></script>

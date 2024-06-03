@@ -12,7 +12,7 @@ class PaymentController extends Controller
     
     public function payment(){
         $countries = Country::all();
-        return view("payment",compact("countries"));
+        return view("get-access",compact("countries"));
     }
 
 
