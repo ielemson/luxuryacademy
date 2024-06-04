@@ -7,17 +7,17 @@
             <li><a href="{{ route("payment") }}">Get Access</a></li>
             <li><a href="{{ route("contact") }}">Contact Us</a></li>
         </ul>
-        <ul class="nav-menu">
+        {{-- <ul class="nav-menu">
             <li><a href="{{ url("/") }}">Home</a></li>
             <li><a href="{{ route("payment") }}">Get Access</a></li>
             <li><a href="{{ route("contact") }}">Contact Us</a></li>
-        </ul>
+        </ul> --}}
         <div class="info-box"> <span>Follow us on Social Media</span>
             <ul class="nav-social">
                 <li><a href="{{ $setting->facebook }}"><i class="lni lni-facebook-filled"></i></a></li>
                 <li><a href="{{ $setting->twitter }}"><i class="lni lni-twitter-original"></i></a></li>
                 <li><a href="{{ $setting->instagram }}"><i class="lni lni-instagram"></i></a></li>
-                <li><a href="{{ $setting->youtube }}"><i class="lni lni-youtube"></i></a></li>
+                {{-- <li><a href="{{ $setting->youtube }}"><i class="lni lni-youtube"></i></a></li> --}}
                 {{-- <li><a href="#"><i class="lni lni-pinterest"></i></a></li> --}}
             </ul>
         </div>

@@ -2,11 +2,11 @@
     <div class="layer"></div>
     <!-- end layer -->
     <div class="container">
-      <ul class="nav-menu mobile-menu">
+      {{-- <ul class="nav-menu mobile-menu">
         <li><a href="{{ url("/") }}">Home</a></li>
         <li><a href="{{ route("payment") }}">Get Access</a></li>
         <li><a href="{{ route("contact") }}">Contact Us</a></li>
-      </ul>
+      </ul> --}}
       <ul class="nav-menu">
         <li><a href="{{ url("/") }}">Home</a></li>
         <li><a href="{{ route("payment") }}">Get Access</a></li>

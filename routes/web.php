@@ -26,6 +26,7 @@ Route::post('pay', [App\Http\Controllers\PaymentController::class, 'storePayment
 Route::get('/payment/callback', 'PaymentController@handleGatewayCallback');
 Route::post('/payment/store', 'FrontendController@paymentAccess')->name("paymentAccess");
 Route::get('contact', [App\Http\Controllers\FrontendController::class, 'contact'])->name("contact");
+Route::post('contact/send', [App\Http\Controllers\FrontendController::class, 'Sendcontact'])->name("contact.send");
 Route::get('about', [App\Http\Controllers\FrontendController::class, 'about'])->name("about");
 
 

@@ -47,11 +47,11 @@
 
 <body>
     <div class="cursor js-cursor"></div>
-    {{-- <div class="preloader">
+    <div class="preloader">
         <div class="loadbar"></div>
         <!-- end loadbar -->
         <figure> <span>LOADING...</span> </figure>
-    </div> --}}
+    </div>
     <!-- end preloader -->
     <div class="page-transition">
         <div class="layer"></div>
@@ -75,7 +75,7 @@
                         </div>
                         <!-- end section-title -->
                         <div class="contact-form">
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <input type="text" placeholder="Your Name">
                             </div>
                             <!-- end form-group -->
@@ -94,7 +94,100 @@
                             <div class="form-group">
                                 <input type="submit" value="SEND MESSAGE">
                             </div>
-                            <!-- end form-group -->
+                            <!-- end form-group --> --}}
+                            <form action="{{ route("contact.send") }}" class="contact-three__form"
+                            novalidate="novalidate" method="POST">
+                            @csrf
+                            <div class="row">
+                                <div class="col-xl-6 col-lg-6">
+                                    <div class="form-group">
+                                        <input type="text" placeholder="Your First Name" name="fname" class=" @error('fname') is-invalid @enderror" value="{{old('fname')}}" required>
+                                        @error('fname')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6">
+                                    <div class="form-group">
+                                        <input type="text" placeholder="Your Last Name" name="lname" class=" @error('lname') is-invalid @enderror" value="{{old('lname')}}" required>
+                                        @error('lname')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6">
+                                    <div class="form-group">
+                                        <input type="email" placeholder="Email Address" name="email" class=" @error('email') is-invalid @enderror" required value="{{old('email')}}">
+                                    @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6">
+                                    <div class="form-group">
+                                        <input type="text" placeholder="Phone" name="phone" class=" @error('phone') is-invalid @enderror" value="{{old('phone')}}">
+                                        @error('phone')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                {{-- <div class="col-xl-6 col-lg-6">
+                                    <div class="form-group">
+                                        <input type="text" placeholder="Subject" name="subject" class=" @error('subject') is-invalid @enderror" value="{{old('subject')}}">
+                                        @error('subject')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div> --}}
+                                
+                                <div class="col-xl-12 col-lg-12">
+                                    {!! app('captcha')->display() !!}
+                                    @if ($errors->has('g-recaptcha-response'))
+                                    <span class="help-block">
+                                    <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                                {{-- <div class="col-xl-6 col-lg-6">
+                                    <div class="form-group">
+                                        <input id="captcha" type="text" class=" @error('captcha') is-invalid @enderror"placeholder="Enter Captcha" name="captcha" required>
+                                        @error('captcha')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div> --}}
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-12 col-lg-12">
+                                    <div class="form-group text-message-box">
+                                        <textarea name="message" placeholder="Write a Comment" class=" @error('message') is-invalid @enderror">
+                                            
+                                            </textarea>
+                                            @error('message')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                    </div>
+                                    <div class="contact-three__btn-box">
+                                        <button type="submit" class="thm-btn contact-three__btn">Send message<span
+                                        class="icon-dabble-arrow-right"></span></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                         </div>
                         <!-- end contact-form -->
                     </div>
