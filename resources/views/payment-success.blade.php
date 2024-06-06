@@ -83,14 +83,13 @@
                             <p>
                                 You have successfully enrolled into our {{ $setting->training_title }} <br>
                                 <b>Kindly click</b> on the link below to join our Telegram Community <br>
-                                 <a href="{{ $setting->telegram_group }}" class="mt-2"><i class="fa fa-link"> </i>Spring Luxury Academy Telegram Community</a>
+                                 <a href="{{ $setting->telegram_group }}" class="mt-2"> <i class="fa fa-link"> </i> Spring Luxury Academy Telegram Community</a>
                                  or 
-                                 
+                                 <br>
                                  <input type="text" id="GroupLinkInput"
                                  value="{{ $setting->telegram_group }} " hidden>
-                             <button class="btn btn-info btn-sm"
-                                onclick="copyGroupLink()"><i class="fa fa-copy"></i> Copy
-                                 Address to Clipboard</button>
+                             <button class="btn btn-primary btn-smm mt-3"
+                                onclick="copyGroupLink()"> <i class="fa fa-copy"></i> Copy Telegram Group Link</button>
                             </p>
                            
                         </div>
