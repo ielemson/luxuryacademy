@@ -40,7 +40,7 @@
                 <div class="card-header" role="tab" id="headingThree"> <a class="collapsed" data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree"> How are the classes conducted?</a> </div>
                 <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
                   <div class="card-body">
-                    The classes are held online. Once you've registered, you'll gain access to the HBA Student Portal where all class videos are uploaded. Additionally, you'll be added to a Telegram group for real-time interaction with fellow students, facilitators, and Hilda Baci herself.
+                    The classes are held online. Once you've registered, you'll gain access to the Spring Luxury Academy Telegram Group, where all class videos are uploaded. Additionally, you'll be added to a Telegram group for real-time interaction with fellow students, facilitators, and Hilda Baci herself.
                   </div>
                   <!-- end card-body --> 
                 </div>
