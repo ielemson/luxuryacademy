@@ -1,5 +1,20 @@
 $(document).ready(function(){
 
+    iziToast.settings({
+        timeout: 3000, // default timeout
+        resetOnHover: true,
+        // icon: '', // icon class
+        transitionIn: 'flipInX',
+        transitionOut: 'flipOutX',
+        position: 'topLeft', // bottomRight, bottomLeft, topRight, topLeft, topCenter, bottomCenter, center
+        onOpen: function () {
+        //   console.log('callback abriu!');
+        },
+        onClose: function () {
+        //   console.log("callback fech");
+        }
+      });
+
     const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
@@ -14,7 +29,8 @@ $('#getAccessForm').on('submit', function(event){
  if($('#getAccessForm').parsley().isValid())
  {
     let handler = PaystackPop.setup({
-                    key: 'pk_live_7ea54c15e184ca87a7b7ccc92d5c0330f600d75e', // Replace with your public keyS
+                    key: 'pk_test_7093b3880aac2c3e0d69a7467f9da060472f2696', // Replace with your public keyS
+                    // key: 'pk_live_7ea54c15e184ca87a7b7ccc92d5c0330f600d75e', // Replace with your public keyS
                     email: document.getElementById("email").value,
                     amount: document.getElementById("amount").value * 100,
                     onClose: function() {
@@ -38,19 +54,30 @@ $('#getAccessForm').on('submit', function(event){
                             headers: {
                                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                             },
-                            url:"{{ route('paymentAccess') }}",
+                            url:"/payment/store",
                             method:"POST",  
                             data:$("#getAccessForm").serialize(),
                             dataType: "json",
                             success: function(data) {
                                     if (data.status == 200) {
-                            Toast.fire({
-                            // type: 'success',
-                            icon: 'success',
-                            title: data.msg
-                             });
+                           
+                            $.dialog({
+                                title: 'Congratulations! Payment Recieved',
+                                type:'green',
+                                content: 'Your payment has been successfully received' +
+                                    '<button type="button" class="btn btn-success mt-2 btn-block">Click here for more instructions</button>',
+                                animation: 'scale',
+                                onOpen: function(){
+                                    var that = this;
+                                    this.$content.find('button').click(function(){
+                                        location.href=`/payment/success/${data.reference}`;
+                                    })
+                                }
+                            });
+
                              $('#getAccessForm')[0].reset();
                             }
+                        
                             },
                             error: function(data) {
                           Toast.fire({
@@ -71,3 +98,20 @@ $('#getAccessForm').on('submit', function(event){
 });
 
 });
+
+
+function copyGroupLink() {
+    // Get the text field
+    var copyText = document.getElementById("GroupLinkInput");
+  
+    // Select the text field
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); // For mobile devices
+  
+     // Copy the text inside the text field
+    navigator.clipboard.writeText(copyText.value);
+  
+    // Alert the copied text
+    // alert("Copied the text: " + copyText.value);
+    iziToast.success({position: "center", title: 'Link Copied'});
+  }

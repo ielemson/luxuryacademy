@@ -40,6 +40,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"
     integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.4/jquery-confirm.min.css">
+
 
 </head>
 
@@ -61,10 +63,11 @@
 
       <section class="content-section">
         <div class="container">
-          <div class="row align-items-center">
-            
+          <div class="align-items-center">
+           
             <div class="row">
                 <div class="col-xl-8 col-md-8 mx-auto">
+                     @include('partials.alert')
                     {{-- <form class="">  class="appoint_form" --}}
                       <form action="#" id="getAccessForm" class="appoint_form"
                       method="post">
@@ -144,9 +147,7 @@
 
                           </div>
                           </div>
-                        
-
-
+ 
                       </div>
                   </form>
                 </div>
@@ -178,6 +179,8 @@
     {{-- <script src="{{ asset("academy/js/jquery-validate-1.9.0.min.js") }}"></script> --}}
     <script src="https://js.paystack.co/v1/inline.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.4/jquery-confirm.min.js"></script>
+    
 </body>
 
 </html>

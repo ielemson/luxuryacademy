@@ -44,7 +44,7 @@
                 </div>
                 <!-- end package-box -->
             </div>
-            <div class="col-lg-4 mt-2">
+            {{-- <div class="col-lg-4 mt-2">
                 <div class="package-box" data-background="#141414">
                     <h4>Fourth Prize</h4>
                     <p>    5 people going home with ₦200k</p>
@@ -58,7 +58,7 @@
                     <p>   2 people get to Attend a month-long house and land inspection with the CEO of Spring luxury homes</p>
                 </div>
                 <!-- end package-box -->
-            </div>
+            </div> --}}
             <!-- end col-6 -->
         </div>
         <!-- end row -->

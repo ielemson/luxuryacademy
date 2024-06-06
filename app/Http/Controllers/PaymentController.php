@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Country;
+use App\Models\Payment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Paystack;
@@ -15,6 +16,17 @@ class PaymentController extends Controller
         return view("get-access",compact("countries"));
     }
 
+public function paymentSuccess($ref){
+
+    $payment = Payment::where("reference",$ref)->first();
+
+    if ($payment) {
+        return view("payment-success",compact("payment"));
+    }else{
+        return redirect()->route("payment")->with('error','Invalid registration, kindly make payment.');
+    }
+
+}
 
     public function paymentAccess(Request $request){
         return response(["data"=>$request->all()]);

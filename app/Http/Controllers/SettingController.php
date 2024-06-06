@@ -45,6 +45,7 @@ class SettingController extends Controller
             'address'                   => 'nullable|string',
             'phone'                     => 'nullable|string',
             'email'                     => 'nullable|string',
+            'telegram_group'            => 'nullable',
         ];
 
         $messages = [

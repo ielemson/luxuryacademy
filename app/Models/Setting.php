@@ -31,6 +31,7 @@ class Setting extends Model
         'about',
         'hotline',
         'training_cost',
-        'training_title'
+        'training_title',
+        'telegram_group'
     ];
 }

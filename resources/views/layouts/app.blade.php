@@ -16,6 +16,14 @@
     <meta name="author" content="{{ $setting->meta_tag }}" />
     <meta name="robots" content="{{ $setting->meta_title }}" />
     <meta name="description" content="{{ $setting->meta_description }}" />
+
+     <!-- FAVICON FILES -->
+     <link href="{{ asset("images/settings/$setting->website_logo_dark") }}" rel="apple-touch-icon" sizes="144x144">
+     <link href="{{ asset("images/settings/$setting->website_logo_dark") }}" rel="apple-touch-icon" sizes="114x114">
+     <link href="{{ asset("images/settings/$setting->website_logo_dark") }}" rel="apple-touch-icon" sizes="72x72">
+     <link href="{{ asset("images/settings/$setting->website_logo_dark") }}" rel="apple-touch-icon">
+     <link href="{{ asset("images/settings/$setting->website_logo_dark") }}" rel="shortcut icon">
+ 
     <!-- FAVICONS ICON -->
     <link rel="icon" href="{{ asset("images/settings/$setting->website_logo_dark") }}" type="image/x-icon" />
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset("images/settings/$setting->website_logo_dark") }}" />

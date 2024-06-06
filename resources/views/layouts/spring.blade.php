@@ -1,6 +1,7 @@
 @php
-    $setting = \App\Models\Setting::find(1);
+$setting = \App\Models\Setting::find(1);
 @endphp
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -11,6 +12,12 @@
     <meta name="author" content="hash360">
     <meta name="description" content="{{ $setting->meta_description }}">
     <meta name="keywords" content="{{ $setting->meta_tag }}">
+ <!-- FAVICON FILES -->
+ <link href="{{ asset("images/settings/$setting->website_logo_dark") }}" rel="apple-touch-icon" sizes="144x144">
+ <link href="{{ asset("images/settings/$setting->website_logo_dark") }}" rel="apple-touch-icon" sizes="114x114">
+ <link href="{{ asset("images/settings/$setting->website_logo_dark") }}" rel="apple-touch-icon" sizes="72x72">
+ <link href="{{ asset("images/settings/$setting->website_logo_dark") }}" rel="apple-touch-icon">
+ <link href="{{ asset("images/settings/$setting->website_logo_dark") }}" rel="shortcut icon">
 
     <!-- SOCIAL MEDIA META -->
     <meta property="og:description" content="SpringLuxury Academy">
@@ -44,12 +51,14 @@
         <!-- end loadbar -->
         <figure> <span>LOADING...</span> </figure>
     </div>
+    
     <!-- end preloader -->
     <div class="page-transition">
         <div class="layer"></div>
         <!-- end layer -->
     </div>
     <!-- end page-transition -->
+
     <main id="main">
       @include('includes.header')
 

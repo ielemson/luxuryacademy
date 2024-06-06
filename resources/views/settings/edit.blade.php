@@ -91,6 +91,14 @@ Website Settings
 													<span class="text-danger">{{ $message }}</span>
 												@enderror
 											</div>
+											<div class="form-group">
+												<label for="training_cost" class="required">{{__('Telegram Group')}}:</label>
+												<input type="telegram_group" name="telegram_group" id="telegram_group" class="form-control @error('telegram_group') form-control-error @enderror" required="required" value="{{$setting->telegram_group}}">
+				
+												@error('telegram_group')
+													<span class="text-danger">{{ $message }}</span>
+												@enderror
+											</div>
 				
 											<div class="row">
 												
