@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\PaymentNotification;
 use App\Models\Country;
 use App\Models\Payment;
+use App\Models\Setting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Laravel\Ui\Presets\React;
 
 class FrontendController extends Controller
@@ -31,7 +34,7 @@ class FrontendController extends Controller
     // }
 
     public function paymentAccess(Request $request){
-
+        $setting = Setting::find(1);
 
         $payment = new Payment();
 
@@ -48,7 +51,17 @@ class FrontendController extends Controller
         $payment->username = $request->username;
 
         if ($payment->save()) {
-            return response()->json(["msg"=>"Access granted!, please check your email for more information","status"=>200]);
+            $details = [
+                'training_title' => $setting->training_title,
+                'telegram_group' => $setting->telegram_group,
+                'fname' => $payment->fname,
+                'lname' => $payment->lname,
+            ];
+            
+            // $userEmail = $request->email;
+        Mail::to($payment->email)->send(new PaymentNotification($details));
+
+        return response()->json(["msg"=>"Access granted!, please check your email for more information","status"=>200,'payment_ref'=>$payment->reference]);
         }
         return response()->json(["msg"=>"Error Occured, try again","status"=>500]);
     }
@@ -79,7 +92,7 @@ class FrontendController extends Controller
             'message' => $request->message
         ];
 
-        dd($details);
+        // dd($details);
 
         // ContactUs::create($details);
         // return back()->with('success','Great! We have received your message');
@@ -94,4 +107,6 @@ class FrontendController extends Controller
         //      return back()->with('success','Great! We have received your message');
         //     }
     }
+
+    
 }
