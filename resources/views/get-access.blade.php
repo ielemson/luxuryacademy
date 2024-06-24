@@ -13,7 +13,7 @@
     <meta name="author" content="hash360">
     <meta name="description" content="{{ $setting->meta_description }}">
     <meta name="keywords" content="{{ $setting->meta_tag }}">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- SOCIAL MEDIA META -->
     <meta property="og:description" content="SpringLuxury Academy">
     {{-- <meta property="og:image" content="preview.html"> --}}
@@ -86,16 +86,7 @@
                                     </p>
                                 </div>
                                 <div class="contact-one">
-                                    <!-- TITLE START -->
-                                    {{-- <div class="section-head">
-<div class="sx-separator-outer separator-left">
-<div class="sx-separator bg-white bg-moving bg-repeat-x"
-style="background-image:url({{ asset("images/background/cross-line2.png") }})">
-<h3 class="sep-line-one text-center">ENTER YOUR DETAILS BELOW TO GET ACCESS
-</h3>
-</div>
-</div>
-</div> --}}
+    
                                     <!-- TITLE END -->
                                     <div class="row">
                                         <div class="form-group col-md-6">

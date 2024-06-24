@@ -27,14 +27,6 @@ $setting = \App\Models\Setting::find(1);
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://springluxuryacademy.com/">
 
-
-    <!-- FAVICON FILES -->
-    <link href="ico/apple-touch-icon-144-precomposed.png" rel="apple-touch-icon" sizes="144x144">
-    <link href="ico/apple-touch-icon-114-precomposed.png" rel="apple-touch-icon" sizes="114x114">
-    <link href="ico/apple-touch-icon-72-precomposed.png" rel="apple-touch-icon" sizes="72x72">
-    <link href="ico/apple-touch-icon-57-precomposed.png" rel="apple-touch-icon">
-    <link href="ico/favicon.png" rel="shortcut icon">
-
     <!-- CSS FILES -->
     <link rel="stylesheet" href="{{ asset('spring/css/lineicons.css') }}">
     <link rel="stylesheet" href="{{ asset('spring/css/datepicker.min.css') }}">

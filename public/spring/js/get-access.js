@@ -1,4 +1,6 @@
-$(document).ready(function() {
+
+
+$(function() {
 
     iziToast.settings({
         timeout: 3000, // default timeout
@@ -21,6 +23,7 @@ $(document).ready(function() {
         showConfirmButton: false,
         timer: 3000
     });
+    
     $('#getAccessForm').parsley();
 
     $('#getAccessForm').on('submit', function(event) {
