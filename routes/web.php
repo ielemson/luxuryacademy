@@ -26,8 +26,10 @@ Route::get('/payment/success/{ref}', [App\Http\Controllers\PaymentController::cl
 Route::post('pay', [App\Http\Controllers\PaymentController::class, 'storePaymentInfo'])->name('pay');
 Route::get('/payment/callback', 'PaymentController@handleGatewayCallback');
 Route::post('/payment/store', 'FrontendController@paymentAccess')->name("paymentAccess");
-Route::get('contact', [App\Http\Controllers\FrontendController::class, 'contact'])->name("contact");
-Route::post('contact/send', [App\Http\Controllers\FrontendController::class, 'Sendcontact'])->name("contact.send");
+Route::get('/contact', [App\Http\Controllers\ContactController::class, 'showForm'])->name("contact");
+Route::get('/reload-captcha', [App\Http\Controllers\ContactController::class, 'refreshCaptcha'])->name("captcha.refresh");
+
+Route::post('contact/send', [App\Http\Controllers\ContactController::class, 'submitForm'])->name("contact.send");
 Route::get('about', [App\Http\Controllers\FrontendController::class, 'about'])->name("about");
 
 

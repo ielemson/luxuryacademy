@@ -177,6 +177,7 @@ return [
         App\Providers\BladeServiceProvider::class,
         Unicodeveloper\Paystack\PaystackServiceProvider::class,
         Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
+        Mews\Captcha\CaptchaServiceProvider::class,
 
     ],
 
@@ -230,7 +231,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Paystack' => Unicodeveloper\Paystack\Facades\Paystack::class,
-
+        'Captcha' => Mews\Captcha\Facades\Captcha::class,
     ],
 
 ];

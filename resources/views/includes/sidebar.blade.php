@@ -50,14 +50,15 @@
                                     <i class="fas fa-bomb nav-icon"></i>
                                     <p>Permissions</p>
                                 </a>
-                            </li>
-                        @endcan
-                        <li class="nav-item">
+                            </li>  
+                             <li class="nav-item">
                             <a href="{{ route('user.index') }}" class="nav-link">
                                 <i class="fas fa-users-cog nav-icon"></i>
                                 <p>Users</p>
                             </a>
                         </li>
+                        @endcan
+                     
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -68,12 +69,12 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="#" class="nav-link">
                     <i class="fas fa-bell nav-icon"></i>
                     <p>Notifications</p>
                     </a>
-                </li>
+                </li> --}}
 
                 <li class="nav-item">
                     <a href="#" class="nav-link">

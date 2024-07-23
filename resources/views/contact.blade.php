@@ -23,11 +23,11 @@
     <meta property="og:url" content="https://springluxuryacademy.com/">
 
     <!-- FAVICON FILES -->
-    <link href="ico/apple-touch-icon-144-precomposed.png" rel="apple-touch-icon" sizes="144x144">
-    <link href="ico/apple-touch-icon-114-precomposed.png" rel="apple-touch-icon" sizes="114x114">
-    <link href="ico/apple-touch-icon-72-precomposed.png" rel="apple-touch-icon" sizes="72x72">
-    <link href="ico/apple-touch-icon-57-precomposed.png" rel="apple-touch-icon">
-    <link href="ico/favicon.png" rel="shortcut icon">
+    <link href="{{ asset("images/settings/$setting->website_logo_dark") }}" rel="apple-touch-icon" sizes="144x144">
+    <link href="{{ asset("images/settings/$setting->website_logo_dark") }}" rel="apple-touch-icon" sizes="114x114">
+    <link href="{{ asset("images/settings/$setting->website_logo_dark") }}" rel="apple-touch-icon" sizes="72x72">
+    <link href="{{ asset("images/settings/$setting->website_logo_dark") }}" rel="apple-touch-icon">
+    <link href="{{ asset("images/settings/$setting->website_logo_dark") }}" rel="shortcut icon">
 
     <!-- CSS FILES -->
     <link rel="stylesheet" href="{{ asset('spring/css/lineicons.css') }}">
@@ -36,11 +36,19 @@
     <link rel="stylesheet" href="{{ asset('spring/css/swiper.min.css') }}">
     <link rel="stylesheet" href="{{ asset('spring/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('spring/css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.css">
     <style>
-        .error {
+        .parsley-required {
             color: darkred;
             font-weight: 800;
-            font-size: 0.9rem
+            font-size: 0.9rem;
+            list-style: none;
+        }
+
+        .spinner-border {
+            display: none;
+            width: 1.5rem; /* Custom size */
+            height: 1.5rem; /* Custom size */
         }
     </style>
 </head>
@@ -68,35 +76,15 @@
         <section class="content-section">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-lg-8 mx-auto">
+                    <div class="col-lg-12 mx-auto">
                         <div class="section-title">
                             <h6>DON'T HESITATE PLEASE</h6>
                             <h2>We would love to hear from you</h2>
                         </div>
                         <!-- end section-title -->
                         <div class="contact-form">
-                            {{-- <div class="form-group">
-                                <input type="text" placeholder="Your Name">
-                            </div>
-                            <!-- end form-group -->
-                            <div class="form-group">
-                                <input type="text" placeholder="Your E-mail">
-                            </div>
-                            <!-- end form-group -->
-                            <div class="form-group">
-                                <input type="text" placeholder="Phone Number">
-                            </div>
-                            <!-- end form-group -->
-                            <div class="form-group">
-                                <textarea placeholder="Your Message"></textarea>
-                            </div>
-                            <!-- end form-group -->
-                            <div class="form-group">
-                                <input type="submit" value="SEND MESSAGE">
-                            </div>
-                            <!-- end form-group --> --}}
-                            <form action="{{ route("contact.send") }}" class="contact-three__form"
-                            novalidate="novalidate" method="POST">
+                          
+                            <form id="contactForm" data-parsley-validate>
                             @csrf
                             <div class="row">
                                 <div class="col-xl-6 col-lg-6">
@@ -131,7 +119,7 @@
                                 </div>
                                 <div class="col-xl-6 col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" placeholder="Phone" name="phone" class=" @error('phone') is-invalid @enderror" value="{{old('phone')}}">
+                                        <input type="text" placeholder="Phone" name="phone" id="phone" class=" @error('phone') is-invalid @enderror" value="{{old('phone')}}" required>
                                         @error('phone')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -139,55 +127,58 @@
                                         @enderror
                                     </div>
                                 </div>
-                                {{-- <div class="col-xl-6 col-lg-6">
+                                <div class="col-xl-6 col-lg-6">
+                                    {{-- <div class="form-group">
+                                            <span>{!! captcha_img() !!}</span>
+                                            <button type="button" class="btn btn-danger" class="btn-refresh" id="reload">
+                                                &#x21bb;   
+                                        </div>
+                                        <input type="text" placeholder="Enter Captcha Here" class="form-control" id="captcha" name="captcha" required data-parsley-required-message="Captcha is required">
+                                    </div> --}}
                                     <div class="form-group">
-                                        <input type="text" placeholder="Subject" name="subject" class=" @error('subject') is-invalid @enderror" value="{{old('subject')}}">
-                                        @error('subject')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
+                                        {{-- <label for="captcha">Captcha:</label> --}}
+                                        {{-- <div>
+                                            <img src="{{ captcha_src('math') }}" class="captcha-img" alt="captcha">
+                                            <button type="button" class="btn btn-secondary btn-refresh">Refresh</button>
+                                        </div> --}}
+                                        <div class="captcha">
+                                            <span>{!! captcha_img() !!}</span>
+                                            {{-- <button type="button" class="btn btn-danger" class="reload" id="reload">
+                                                &#x21bb;
+                                            </button> --}}
+                                            <button type="button" class="btn btn-secondary" id="btn-refresh">Refresh</button>
+                                        </div>
+
+                                        <input type="text" class="form-control" id="captcha" name="captcha" required data-parsley-required-message="Captcha is required">
                                     </div>
-                                </div> --}}
-                                
-                                <div class="col-xl-12 col-lg-12">
-                                    {!! app('captcha')->display() !!}
-                                    @if ($errors->has('g-recaptcha-response'))
-                                    <span class="help-block">
-                                    <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
-                                    </span>
-                                    @endif
                                 </div>
-                                {{-- <div class="col-xl-6 col-lg-6">
-                                    <div class="form-group">
-                                        <input id="captcha" type="text" class=" @error('captcha') is-invalid @enderror"placeholder="Enter Captcha" name="captcha" required>
-                                        @error('captcha')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                </div> --}}
+                              
                             </div>
                             <div class="row">
                                 <div class="col-xl-12 col-lg-12">
-                                    <div class="form-group text-message-box">
-                                        <textarea name="message" placeholder="Write a Comment" class=" @error('message') is-invalid @enderror">
-                                            
-                                            </textarea>
-                                            @error('message')
+                                    <div class="form-group">
+                                        <textarea name="message_body" placeholder="Write a Comment" class=" @error('message_body') is-invalid @enderror" required></textarea>
+                                            @error('message_body')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
                                             @enderror
                                     </div>
+                                   
                                     <div class="contact-three__btn-box">
                                         <button type="submit" class="thm-btn contact-three__btn">Send message<span
-                                        class="icon-dabble-arrow-right"></span></button>
+                                        class="icon-dabble-arrow-right"></span>
+                                            &nbsp;
+                                        <div class="spinner-border text-info text-sm" role="status">
+                                            <span class="sr-only">Loading...</span>
+                                        </div>
+
+                                      </button>
                                     </div>
                                 </div>
                             </div>
                         </form>
+                        <div id="formResponse"></div>
                         </div>
                         <!-- end contact-form -->
                     </div>
@@ -216,7 +207,10 @@
     </main>
 
     <!-- JS FILES -->
-    <script src="{{ asset('spring/js/jquery.min.js') }}"></script>
+    {{-- <script src="{{ asset('spring/js/jquery.min.js') }}"></script> --}}
+       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+       <script src="https://cdn.jsdelivr.net/npm/parsleyjs@2.9.2/dist/parsley.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <script src="{{ asset('spring/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('spring/js/fancybox.min.js') }}"></script>
     <script src="{{ asset('spring/js/swiper.min.js') }}"></script>
@@ -225,98 +219,55 @@
     <script src="{{ asset('spring/js/overscroll.js') }}"></script>
     <script src="{{ asset('spring/js/TweenMax.min.js') }}"></script>
     <script src="{{ asset('spring/js/scripts.js') }}"></script>
-    {{-- <script src="{{ asset("academy/js/jquery-2.2.4.js") }}"></script> --}}
-    <script src="{{ asset('academy/js/jquery-validate-1.9.0.min.js') }}"></script>
-    {{-- @push('custom_script') --}}
-    <script>
-        if ($("#ajax-contact-form").length > 0) {
-            $("#ajax-contact-form").validate({
-                rules: {
-                    fname: {
-                        required: true,
-                        // maxlength: 50
-                    },
-                    lname: {
-                        required: true,
-                        // maxlength: 50
-                    },
-                    email: {
-                        required: true,
-                        maxlength: 50,
-                        email: true,
-                    },
-                    username: {
-                        required: true,
-                        // maxlength: 100
-                    },
-                    phone: {
-                        required: true,
-                        // maxlength: 300
-                    },
-                    state: {
-                        required: true,
-                        // maxlength: 300
-                    },
-                    country: {
-                        required: true,
-                        // maxlength: 300
-                    },
-                },
-                messages: {
-                    fname: {
-                        required: "Please first enter name",
-                        maxlength: "Your name maxlength should be 50 characters long."
-                    },
-                    lname: {
-                        required: "Please enter last name",
-                        maxlength: "Your name maxlength should be 50 characters long."
-                    },
-                    email: {
-                        required: "Please enter valid email",
-                        email: "Please enter valid email",
-                        maxlength: "The email name should less than or equal to 50 characters",
-                    },
-                    username: {
-                        required: "Please enter username",
-                        maxlength: "Your subject maxlength should be 100 characters long."
-                    },
-                    phone: {
-                        required: "Please enter phone number",
-                    },
-                    state: {
-                        required: "Please enter your state",
-                    },
-                    country: {
-                        required: "Please enter your country",
-                    },
-                },
-                submitHandler: function(form) {
-                    $.ajaxSetup({
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        }
-                    });
 
-                    $('#submit').html('Please Wait...');
-                    $("#submit").attr("disabled", true);
+    <script>
+         $(document).ready(function() {
+            $('#btn-refresh').click(function () {
+        $.ajax({
+            type: 'GET',
+            url: 'reload-captcha',
+            success: function (data) {
+                $(".captcha span").html(data.captcha);
+            }
+        });
+    });
+
+            $('#contactForm').on('submit', function(event) {
+                event.preventDefault();
+
+                if ($(this).parsley().isValid()) {
+                    $('.spinner-border').show(); // Show spinner
 
                     $.ajax({
-                        url: "{{ url('payment/authenticate') }}",
-                        type: "POST",
-                        data: $('#ajax-contact-form').serialize(),
+                        url: '{{ route('contact.send') }}',
+                        method: 'POST',
+                        data: $(this).serialize(),
                         success: function(response) {
-                            console.log(response)
-                            //   $('#submit').html('Submit');
-                            //   $("#submit"). attr("disabled", false);
-                            //   alert('Ajax form has been submitted successfully');
-                            //   document.getElementById("ajax-contact-form").reset(); 
+                            swal("Success!", response.message, "success");
+                            $('#contactForm')[0].reset();
+                            $('.btn-refresh').click(); // Refresh captcha image
+                            $('.spinner-border').hide(); // Hide spinner
+                        },
+                        error: function(response) {
+                            var errors = response.responseJSON.errors;
+                            var errorMessage = "";
+                            $.each(errors, function(key, value) {
+                                errorMessage += value[0] + "\n";
+                            });
+                            swal("Error!", errorMessage, "error");
+                            $('.spinner-border').hide(); // Hide spinner
                         }
                     });
+                } else {
+                    $(this).parsley().on('field:error', function() {
+                        var errors = this.getErrorsMessages();
+                        swal("Validation Error", errors.join("\n"), "error");
+                    });
                 }
-            })
-        }
+            });
+        });
     </script>
-    {{-- @endpush --}}
+          
 </body>
 
 </html>

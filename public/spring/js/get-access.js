@@ -31,8 +31,8 @@ $(function() {
 
         if ($('#getAccessForm').parsley().isValid()) {
             let handler = PaystackPop.setup({
-                key: 'pk_test_7093b3880aac2c3e0d69a7467f9da060472f2696', // Replace with your public keyS
-                // key: 'pk_live_7ea54c15e184ca87a7b7ccc92d5c0330f600d75e', // Replace with your public keyS
+                // key: 'pk_test_7093b3880aac2c3e0d69a7467f9da060472f2696', // Replace with your public keyS
+                key: 'pk_live_7ea54c15e184ca87a7b7ccc92d5c0330f600d75e', // Replace with your public keyS
                 email: document.getElementById("email").value,
                 amount: document.getElementById("amount").value * 100,
                 onClose: function() {

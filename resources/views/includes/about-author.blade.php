@@ -3,25 +3,26 @@
       <div class="row no-gutters align-items-center">
         <div class="col-lg-6">
           <div class="side-content light text-left">
-            <h6>About Your Instructor</h6>
-            <h2>About Your Instructor</h2>
+            <h6>Interior Design Expertise</h6>
+            <h2>Interior Design Expertise</h2>
+            <b>Learn from a Renowned Interior Designer</b>
             <p>
-              <b>World-Record Achievements and Real Estate Expertise</b>
-              Learn from a recognized leader in the real estate industry. Their dedication and expertise shine through in every lesson.
+              Gain insights from a successful interior designer whose dedication and expertise shine through in every project.
             </p>
+            <b>A Successful Design Entrepreneur</b>
             <p>
-              <b>A Successful Real Estate Entrepreneur</b>
-              Our instructor manages a thriving real estate firm, generating millions in revenue annually. Their success story brings invaluable business insights to the course.
-            </p>
+              Learn invaluable business insights from a top industry figure who operates a highly successful interior design firm.
             <p>
-              <b>Passionate Educator and Mentor</b>: Known for their approachable and supportive nature, our instructor makes learning a joy. They are dedicated to turning your passion for real estate into a successful career.
+              <b>Passionate Educator and Mentor</b>
+              <p>
+                Enjoy an inspiring learning experience with a mentor committed to turning your design passion into a profitable career.
             </p>
           </div>
           <!-- end side-content --> 
         </div>
         <!-- end col-6 -->
         <div class="col-lg-6">
-          <figure class="side-image right-align overlap-top reveal-effect"><img src="{{ asset("media/images/ceo.jpg") }}" alt="author"></figure>
+          <figure class="side-image right-align overlap-top reveal-effect"><img src="{{ asset("media/images/about-your-instructor.jpg") }}" alt="about your instructor"></figure>
         </div>
         <!-- end col-6 --> 
       </div>
